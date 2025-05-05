@@ -1,0 +1,388 @@
+/* AboutUs.css */
+
+/* Base Styles */
+.about-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    background-color: var(--background-main);
+  }
+  
+  /* Hero Section */
+  .about-hero {
+    background: linear-gradient(135deg, var(--secondary-bold), var(--secondary-cool));
+    color: var(--text-on-dark);
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    font-weight: 300;
+    opacity: 0.9;
+  }
+  
+  /* Common Section Styles */
+  .about-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .about-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--secondary-bold);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .divider {
+    width: 80px;
+    height: 4px;
+    background: var(--primary);
+    margin: 0 auto var(--spacing-xl);
+    border-radius: var(--radius-lg);
+  }
+  
+  .section-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .text-content {
+    flex: 1 1 50%;
+    min-width: 300px;
+  }
+  
+  .text-content p {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  
+  .image-content {
+    flex: 1 1 40%;
+    min-width: 300px;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    background-color: var(--background-main);
+  }
+  
+  .mission-image {
+    background: url('https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+    background-size: cover;
+    height: 400px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Values Section */
+  .values-section {
+    background-color: var(--background-section);
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .value-card {
+    background: var(--text-on-dark);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+  
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--radius-circle);
+    background-color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+  }
+  
+  .value-card h3 {
+    color: var(--secondary-cool);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.3rem;
+  }
+  
+  /* History Section */
+  .history-section {
+    background-color: var(--background-main);
+  }
+  
+  .history-image {
+    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .timeline {
+    position: relative;
+    padding-left: var(--spacing-lg);
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--primary);
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+  }
+  
+  .timeline-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .timeline-item h4 {
+    color: var(--primary);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.2rem;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-circle);
+    background: var(--secondary-bold);
+    border: 3px solid var(--primary);
+  }
+  
+  /* Team Section */
+  .team-section {
+    background-color: var(--background-section);
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .team-card {
+    background: var(--text-on-dark);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal);
+  }
+  
+  .team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: var(--radius-circle);
+    margin: 0 auto var(--spacing-md);
+    background-size: cover;
+    background-position: center;
+    border: 4px solid var(--primary-light);
+  }
+  
+  .photo1 {
+    background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
+  }
+  
+  .photo2 {
+    background-image: url('https://randomuser.me/api/portraits/women/44.jpg');
+  }
+  
+  .photo3 {
+    background-image: url('https://randomuser.me/api/portraits/men/75.jpg');
+  }
+  
+  .team-card h3 {
+    color: var(--secondary-bold);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+  }
+  
+  .position {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .bio {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+  
+  /* CTA Section */
+  .about-cta {
+    background: linear-gradient(135deg, var(--secondary-bold), var(--secondary-cool));
+    color: var(--text-on-dark);
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .about-cta h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .about-cta p {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+  
+  .primary-btn, .secondary-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 1rem;
+    min-width: 200px;
+  }
+  
+  .primary-btn {
+    background-color: var(--primary);
+    color: var(--text-on-dark);
+    border: 2px solid var(--primary);
+  }
+  
+  .primary-btn:hover {
+    background-color: #E65100;
+    border-color: #E65100;
+  }
+  
+  .secondary-btn {
+    background-color: transparent;
+    color: var(--text-on-dark);
+    border: 2px solid var(--text-on-dark);
+  }
+  
+  .secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .section-content {
+      flex-direction: column;
+    }
+    
+    .mission-image, .history-image {
+      height: 300px;
+      min-width: 100%;
+    }
+    
+    .values-grid, .team-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-cta h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+    
+    .about-section h2 {
+      font-size: 1.8rem;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+    }
+    
+    .primary-btn, .secondary-btn {
+      width: 100%;
+    }
+  }

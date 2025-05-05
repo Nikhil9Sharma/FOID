@@ -1,0 +1,249 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* Color Palette */
+  --primary: #FF6F00;
+  --primary-light: #FFE0B2;
+  --secondary-cool: #00695C;
+  --secondary-bold: #3949AB;
+  
+  /* Text Colors */
+  --text-primary: #212121;
+  --text-secondary: #616161;
+  --text-on-dark: #FFFFFF;
+  
+  /* Background Colors */
+  --background-main: #fafafa;
+  --background-section: #f5f5f5;
+  --background-accent: #ffe0b2;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Shadows */
+ 
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-circle: 50%;
+}
+
+body {
+  padding-top: 70px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  background-color: #f8f9fa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logoarea {
+  display: flex;
+  align-items: center;
+  z-index: 1002;
+}
+
+.logoarea img {
+  max-width: 60px;
+  max-height: 50px;
+}
+
+.CompanyName {
+  margin-left: 10px;
+}
+
+.logoarea .Name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.logoarea .Name:hover {
+  color: var(--secondary-bold);
+}
+
+.logoarea .slogan {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #004687;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menuarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuarea ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menuarea ul li button {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  background-color: transparent;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.menuarea ul li button:hover {
+  color: var(--primary);
+  background-color: rgba(0, 49, 83, 0.1);
+}
+
+.menuBtn {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1001;
+  color: #003153;
+}
+
+.desktop-loginarea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.desktop-loginarea button {
+  font-weight: bold;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 0px;
+}
+
+.username {
+  font-weight: bold;
+  color: var(--primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+  
+  .menuBtn {
+    display: block;
+  }
+
+  .menuarea {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    max-width: 300px;
+    background-color: #f8f9fa;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .menuarea.active {
+    right: 0;
+  }
+
+  .menu-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #e0e0e0;
+  }
+
+  .menuarea ul {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .menuarea ul li button {
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    border-radius: 4px;
+    border: 1px solid var(--background-main);
+  }
+
+  .mobile-loginarea {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .desktop-loginarea {
+    display: none;
+  }
+
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .username {
+    display: block;
+    font-size: 1.1rem;
+  }
+}

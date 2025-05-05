@@ -1,0 +1,71 @@
+.mainlearnSection {
+    display: flex;
+    height: 400px;
+    flex-direction:column ;
+    
+    /* background-color: aqua; */
+    background: url("../foid-assets/backgroundImg.jpeg");
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center;
+}   
+.welcomeHeading {
+    display: flex;
+    /* width: 200px; */
+    height: 1.3rrem;
+    margin: 30px 0px 0px 0px;
+    font-size: 1.2rem;
+    color: rgb(250, 90, 1);
+}
+.welcomeHeading span {
+
+}
+.thought {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0px 0px 0px 1.6rem; */
+}
+.thoughtSection {
+    width: 400px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    /* background-color: blueviolet;  */
+
+}
+.slogan {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.sub-slogan {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+}
+.slogan span {
+    color: rgb(250, 90, 1);
+}
+.welcomeHeading span {
+    margin: 0px 0px 0px 1rem; 
+}
+
+
+.MoreOptionSection {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    /* flex-wrap: wrap; */
+    margin: 0px 0px 0px 32px;
+}
+.MoreOptionSection .morePortionBtn {
+    height: 3rem;
+    width: 10rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px 25px 25px 0;
+    margin: 50px 50px 50px 0px; 
+    background-color: rgb(250, 90, 1);
+   
+}   
