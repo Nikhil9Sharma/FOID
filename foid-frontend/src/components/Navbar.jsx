@@ -5,7 +5,8 @@ import { FiAlignJustify, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const dummyUser = {
-  isLoggedIn: true,
+  isLoggedIn: false,
+  // toggle to true to simulate logged-in state
   username: "JohnDoe",
   profilePic: "./foid-assets/userImg.jpg"
 };
