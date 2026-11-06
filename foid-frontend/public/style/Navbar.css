@@ -1,40 +1,44 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   /* Color Palette */
   --primary: #FF6F00;
   --primary-light: #FFE0B2;
   --secondary-cool: #00695C;
   --secondary-bold: #3949AB;
-  
+
   /* Text Colors */
   --text-primary: #212121;
   --text-secondary: #616161;
   --text-on-dark: #FFFFFF;
-  
+
   /* Background Colors */
   --background-main: #fafafa;
   --background-section: #f5f5f5;
   --background-accent: #ffe0b2;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
-  
+
+  /* Layout */
+  --navbar-height: 70px;
+
   /* Shadows */
- 
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -43,57 +47,56 @@
 }
 
 body {
-  padding-top: 70px;
+  padding-top: var(--navbar-height);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* =========================================================
+  NAVBAR: 3 columns -> [ logo | menu (center) | auth (right) ]
+   ========================================================= */
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 10px;
-  background-color: #f8f9fa;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: var(--navbar-height);
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  box-shadow: var(--shadow-sm);
+  padding: 0 16px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;   /* keeps the menu truly centered */
+  align-items: center;
 }
 
+/* ---------- LEFT: logo + organization name ---------- */
 .logoarea {
   display: flex;
   align-items: center;
-  z-index: 1002;
+  gap: 10px;
+  justify-self: start;
+  text-decoration: none;
 }
 
 .logoarea img {
   max-width: 60px;
   max-height: 50px;
-}
-
-.CompanyName {
-  margin-left: 10px;
+  object-fit: contain;
 }
 
 .logoarea .Name {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--primary);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: all 0.3s ease-in-out;
+  transition: color var(--transition-normal);
 }
 
-.logoarea .Name:hover {
+.logoarea:hover .Name {
   color: var(--secondary-bold);
 }
 
-.logoarea .slogan {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #004687;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* ---------- CENTER: menu links ---------- */
 .menuarea {
   display: flex;
   justify-content: center;
@@ -103,44 +106,89 @@ body {
 .menuarea ul {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: clamp(8px, 2vw, 28px);
 }
 
-.menuarea ul li button {
+.nav-link {
+  display: inline-block;
   font-size: 1rem;
   font-weight: bold;
   color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  border: none;
-  background-color: transparent;
-  padding: 8px 12px;
-  border-radius: 4px;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all var(--transition-normal);
 }
 
-.menuarea ul li button:hover {
+.nav-link:hover,
+.nav-link.active {
+  height: 100%;
   color: var(--primary);
-  background-color: rgba(0, 49, 83, 0.1);
+  background-color: rgba(255, 111, 0, 0.1);
 }
 
-.menuBtn {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  z-index: 1001;
-  color: #003153;
-}
-
+/* ---------- RIGHT: Login + Sign Up (side by side) ---------- */
 .desktop-loginarea {
   display: flex;
+  flex-direction: row;          /* side by side, never stacked */
+  flex-wrap: nowrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
+  justify-self: end;            /* pushes to the far right corner */
+  margin-left: auto;
 }
 
-.desktop-loginarea button {
+.desktop-loginarea .btn {
+  width: auto;                  /* stops buttons stretching full width */
+  display: inline-block;
+  margin: 0;
+}
+
+/* Hidden on desktop, shown only on mobile */
+.mobile-loginarea,
+.menu-close-btn,
+.menuBtn,
+.overlay {
+  display: none;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font-size: 0.95rem;
   font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px 20px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-normal);
 }
 
+.btn-login {
+  background-color: var(--primary);
+  color: var(--text-on-dark);
+}
+
+.btn-login:hover {
+  background-color: #e65100;
+  border-color: #e65100;
+}
+
+.btn-signup {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+.btn-signup:hover {
+  background-color: var(--primary);
+  color: var(--text-on-dark);
+}
+
+/* ---------- Profile (logged-in state) ---------- */
 .profile {
   display: flex;
   align-items: center;
@@ -148,102 +196,163 @@ body {
 }
 
 .profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-circle);
   object-fit: cover;
-  padding: 0px;
 }
 
 .username {
   font-weight: bold;
   color: var(--primary);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
+/* =========================================================
+  RESPONSIVE
+   ========================================================= */
+
+/* ----- Large screens ----- */
+@media screen and (min-width: 1600px) {
   .navbar {
-    padding: 10px 15px;
+    padding: 0 40px;
   }
-  
-  .menuBtn {
-    display: block;
+  .logoarea .Name { font-size: 1.8rem; }
+  .nav-link { font-size: 1.15rem; padding: 10px 18px; }
+  .btn { font-size: 1.05rem; padding: 10px 26px; }
+}
+
+/* ----- Laptop / small desktop ----- */
+@media screen and (max-width: 1024px) {
+  .nav-link { padding: 8px 10px; font-size: 0.95rem; }
+  .btn { padding: 7px 14px; font-size: 0.9rem; }
+}
+
+/* ----- Tablet / Mobile: hamburger + slide-in drawer ----- */
+@media screen and (max-width: 860px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
   }
 
+  /* hide desktop auth buttons, they move into the drawer */
+  .desktop-loginarea {
+    display: none;
+  }
+
+  /* hamburger button */
+  .menuBtn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: 6px;
+  }
+
+  /* drawer */
   .menuarea {
     position: fixed;
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 70%;
-    max-width: 300px;
+    width: 75%;
+    max-width: 320px;
     background-color: #f8f9fa;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 80px;
+    align-items: stretch;
+    padding: 80px 20px 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
     transition: right 0.3s ease-in-out;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+    overflow-y: auto;
   }
 
   .menuarea.active {
     right: 0;
   }
 
-  .menu-close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #e0e0e0;
-  }
+  /* close (X) button inside drawer */
+/* inside @media screen and (max-width: 860px) */
+.menuarea {
+  padding: 20px;
+}
+
+.menu-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin: 0;
+  padding: 0;
+  position: static;
+  width: 60px;
+  height: 40px;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-primary);
+}
 
   .menuarea ul {
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
     width: 100%;
-    padding: 0 20px;
   }
 
-  .menuarea ul li button {
+  .nav-link {
+    display: block;
     width: 100%;
-    text-align: left;
+    height: 100%;
     font-size: 1.1rem;
     padding: 12px 15px;
-    border-radius: 4px;
-    border: 1px solid var(--background-main);
+    border: 1px solid #e0e0e0;
   }
 
+  /* Login + Sign Up inside the drawer, side by side */
   .mobile-loginarea {
-    width: 100%;
-    padding: 20px;
-    margin-top: 20px;
-    border-top: 1px solid #e0e0e0;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
   }
 
-  .desktop-loginarea {
-    display: none;
+  .mobile-loginarea .btn {
+    flex: 1;
+    padding: 12px;
   }
 
-  .profile {
+  .mobile-loginarea .profile {
     flex-direction: column;
     text-align: center;
+    width: 100%;
   }
 
-  .profile-pic {
+  .mobile-loginarea .profile-pic {
     width: 80px;
     height: 80px;
-    margin-bottom: 10px;
   }
-  
-  .username {
+
+  /* dark overlay behind the drawer */
+  .overlay {
     display: block;
-    font-size: 1.1rem;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1001;
   }
+}
+
+/* ----- Small phones ----- */
+@media screen and (max-width: 400px) {
+  .logoarea .Name { font-size: 1.25rem; }
+  .logoarea img { max-width: 45px; }
 }
