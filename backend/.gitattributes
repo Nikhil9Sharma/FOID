@@ -1,2 +1,8 @@
 /mvnw text eol=lf
 *.cmd text eol=crlf
+
+### Env ###
+.env
+.env/*
+*/.env
+**/.env
