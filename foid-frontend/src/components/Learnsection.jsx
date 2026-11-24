@@ -1,54 +1,29 @@
-import React, { useState } from 'react';
-// import './Learnsection.css';
-import { VscOrganization } from "react-icons/vsc";
-
+import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../public/style/Learnsection.css';   // make sure the path is right
 
 function LearnSection() {
-    const [activeButton, setActiveButton] = useState(null); // State to track which button is active
-
-    const handleClick = (buttonId) => {
-        setActiveButton(buttonId); // Set the clicked button's ID
-    };
-
     return (
-        <>
-            <div className="mainlearnSection">
-                <div className="thought">
-                    <h5 className="welcomeHeading">
-                        Welcome to Foid
-                    </h5>
-                    <div className="thoughtSection">
-                        <p className="slogan">
-                            Ready to Start Your <span> Professional </span> Journey
-                        </p>
-                        <p className="sub-slogan">To Unlock Your Potential</p>
-                    </div>
-                </div>
-                <div className="MoreOptionSection">
-                    <Link to="MainaboutUs">
-                    <button
-                        className={`styled-button morePortionBtn ${
-                            activeButton === 1 ? 'active' : ''
-                        }`}
-                        onClick={() => handleClick(1)}
-                    >
-                        About More
-                    </button>
-                    </Link>
-                    <Link to="MainEducation">
-                    <button
-                        className={`styled-button morePortionBtn ${
-                            activeButton === 2 ? 'active' : ''
-                        }`}
-                        onClick={() => handleClick(2)}
-                    >
-                        Learn More
-                    </button>
-                    </Link>
+        <div className="mainlearnSection">
+            <div className="thought">
+                <h2 className="welcomeHeading">Welcome to Foid</h2>
+                <div className="thoughtSection">
+                    <h1 className="slogan">
+                        Ready to Start Your <span>Professional</span> Journey
+                    </h1>
+                    <p className="sub-slogan">To Unlock Your Potential</p>
                 </div>
             </div>
-        </>
+
+            <div className="MoreOptionSection">
+                <Link to="/MainaboutUs" className="styled-button morePortionBtn">
+                    About More
+                </Link>
+                <Link to="/MainEducation" className="styled-button morePortionBtn">
+                    Learn More
+                </Link>
+            </div>
+        </div>
     );
 }
 
