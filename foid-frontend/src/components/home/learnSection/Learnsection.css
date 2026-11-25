@@ -1,0 +1,273 @@
+/* =====================================================
+   Learnsection.css  -  fully responsive (mobile first)
+   Breakpoints:
+     base      : small phones   (up to 479px)
+     480px+    : large phones
+     768px+    : tablets
+     1024px+   : laptops
+     1440px+   : large screens
+     1920px+   : extra large screens / TVs
+   ===================================================== */
+
+/* ---------- Hero wrapper (mobile first) ---------- */
+.mainlearnSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 420px;
+    box-sizing: border-box;
+
+    /* Side padding: at least 1.25rem, but on very wide screens it grows
+       so the content stays centered inside a 1280px area while the
+       background image still fills the whole width. */
+    padding-block: 2.5rem;
+    padding-inline: max(1.25rem, calc((100% - 1280px) / 2));
+
+    background: url("../../../assets/images/backgroundImg.jpeg") center / cover no-repeat;
+    overflow: hidden;
+}
+
+.mainlearnSection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.65) 0%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+}
+
+.mainlearnSection > * {
+    position: relative;
+    z-index: 1;
+}
+.thought {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.welcomeHeading {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    font-weight: 600;
+    color: rgb(250, 90, 1);
+}
+
+.thoughtSection {
+    width: 100%;
+    max-width: 38rem;
+    color: #fff;
+}
+
+.slogan {
+    margin: 0;
+    font-size: clamp(1.8rem, 7.5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+}
+
+.slogan span {
+    color: rgb(250, 90, 1);
+}
+
+.sub-slogan {
+    margin: 0.75rem 0 0;
+    font-size: clamp(0.95rem, 2.8vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.MoreOptionSection {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 28rem;
+    margin-top: 1.75rem;
+}
+
+.morePortionBtn {
+    flex: 1;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+    font-size: clamp(0.85rem, 3.4vw, 1.1rem);
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    border-radius: 25px 25px 25px 0;
+    background-color: rgb(250, 90, 1);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.morePortionBtn:active {
+    transform: scale(0.97);
+}
+
+.morePortionBtn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+@media (hover: hover) {
+    .morePortionBtn:hover {
+        background-color: rgb(215, 72, 0);
+        transform: translateY(-2px);
+    }
+}
+@media (max-width: 359px) {
+    .mainlearnSection {
+        min-height: 380px;
+        padding-block: 2rem;
+    }
+
+    .MoreOptionSection {
+        gap: 0.5rem;
+    }
+
+    .morePortionBtn {
+        padding: 0 0.5rem;
+        min-height: 2.75rem;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .mainlearnSection {
+        min-height: auto;
+        padding-block: 1.5rem;
+    }
+
+    .slogan {
+        font-size: clamp(1.5rem, 5vw, 2.25rem);
+    }
+
+    .MoreOptionSection {
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 480px) {
+    .mainlearnSection {
+        min-height: 450px;
+    }
+
+    .MoreOptionSection {
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .mainlearnSection {
+        min-height: 520px;
+        padding-block: 4rem;
+        padding-inline: max(2.5rem, calc((100% - 1280px) / 2));
+    }
+
+    .thoughtSection {
+        max-width: 42rem;
+    }
+
+    .MoreOptionSection {
+        max-width: 30rem;
+        margin-top: 2.25rem;
+    }
+
+    .morePortionBtn {
+        min-height: 3.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mainlearnSection {
+        min-height: 600px;
+        padding-block: 5rem;
+        padding-inline: max(4rem, calc((100% - 1280px) / 2));
+    }
+
+    .thoughtSection {
+        max-width: 46rem;
+    }
+
+    .MoreOptionSection {
+        max-width: none;
+        width: auto;
+        gap: 1.25rem;
+    }
+
+    .morePortionBtn {
+        flex: 0 0 12rem;
+        min-height: 3.5rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .mainlearnSection {
+        min-height: 680px;
+        padding-inline: max(6rem, calc((100% - 1360px) / 2));
+    }
+
+    .thoughtSection {
+        max-width: 54rem;
+    }
+
+    .slogan {
+        font-size: clamp(3rem, 4vw, 5rem);
+    }
+
+    .sub-slogan {
+        font-size: 1.5rem;
+    }
+
+    .morePortionBtn {
+        flex-basis: 14rem;
+        min-height: 3.75rem;
+        font-size: 1.15rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    .mainlearnSection {
+        min-height: 800px;
+        padding-inline: max(8rem, calc((100% - 1600px) / 2));
+    }
+
+    .thoughtSection {
+        max-width: 64rem;
+    }
+
+    .welcomeHeading {
+        font-size: 1.75rem;
+    }
+
+    .slogan {
+        font-size: 5.5rem;
+    }
+
+    .sub-slogan {
+        font-size: 1.75rem;
+    }
+
+    .morePortionBtn {
+        flex-basis: 16rem;
+        min-height: 4.25rem;
+        font-size: 1.3rem;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .morePortionBtn {
+        transition: none;
+    }
+}
