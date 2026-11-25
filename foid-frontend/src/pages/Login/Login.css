@@ -1,0 +1,291 @@
+/* Uses the :root variables already defined in Navbar.css
+   (--primary, --secondary-bold, --text-primary, --navbar-height, etc.) */
+
+/* ---------- Page ---------- */
+.login-page {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--background-section);
+}
+
+/* ---------- Card: [ brand panel | form ] ---------- */
+.login-card {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  width: 100%;
+  max-width: 880px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Brand panel ---------- */
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 48px 36px;
+  background: var(--secondary-bold);
+  color: var(--text-on-dark);
+}
+
+.login-brand img {
+  width: 72px;
+  height: 72px;
+  padding: 8px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: var(--radius-md);
+}
+
+.login-brand h2 {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.login-brand p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 28ch;
+}
+
+/* ---------- Form area ---------- */
+.login-form-area {
+  padding: 48px 40px;
+}
+
+.login-form-area h1 {
+  font-size: 1.9rem;
+  color: var(--text-primary);
+}
+
+.login-subtitle {
+  margin: 6px 0 28px;
+  color: var(--text-secondary);
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.login-field label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.login-field input {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: #fff;
+  border: 1.5px solid #cfcfcf;
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.login-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 111, 0, 0.25);
+}
+
+.login-field input.has-error {
+  border-color: #c62828;
+}
+
+.login-error {
+  font-size: 0.875rem;
+  color: #c62828;
+}
+
+.login-alert {
+  margin-bottom: 18px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: #b71c1c;
+  background: #fdecea;
+  border-radius: var(--radius-md);
+}
+
+/* ---------- Password show/hide ---------- */
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 48px;
+}
+
+/* color is set in every state so a global button style can't turn it white */
+.login-page .password-toggle,
+.login-page .password-toggle:hover,
+.login-page .password-toggle:focus,
+.login-page .password-toggle:active {
+  color: var(--text-secondary);
+  background: none;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+}
+
+/* ---------- Remember me ---------- */
+.login-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.login-remember input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+/* ---------- Submit ---------- */
+.login-submit {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-on-dark);
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-normal), border-color var(--transition-normal);
+}
+
+.login-submit:hover:not(:disabled) {
+  background: #e65100;
+  border-color: #e65100;
+}
+
+.login-submit:focus-visible {
+  outline: 3px solid var(--secondary-bold);
+  outline-offset: 2px;
+}
+
+.login-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---------- Sign Up link ---------- */
+.login-switch {
+  margin-top: 22px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.login-switch a {
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.login-switch a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  .login-card {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+
+  .login-brand {
+    display: none;
+  }
+
+  .login-form-area {
+    padding: 32px 22px;
+  }
+}
+@media (min-width: 1600px) {
+  .login-card { max-width: 1040px; }
+  .login-brand { padding: 64px 48px; gap: 18px; }
+  .login-brand img { width: 88px; height: 88px; }
+  .login-brand h2 { font-size: 2.6rem; }
+  .login-brand p { font-size: 1.2rem; }
+  .login-form-area { padding: 64px 56px; }
+  .login-form-area h1 { font-size: 2.3rem; }
+  .login-subtitle { font-size: 1.1rem; margin-bottom: 34px; }
+  .login-field label { font-size: 1.05rem; }
+  .login-field input { padding: 14px 16px; font-size: 1.1rem; }
+  .login-submit { padding: 14px; font-size: 1.1rem; }
+}
+
+/* Laptop (up to 1024px) */
+@media (max-width: 1024px) {
+  .login-card { max-width: 800px; }
+  .login-brand { padding: 40px 30px; }
+  .login-form-area { padding: 40px 32px; }
+}
+
+/* Tablet (up to 860px) */
+@media (max-width: 860px) {
+  .login-card { max-width: 720px; }
+  .login-brand { padding: 36px 26px; }
+  .login-brand h2 { font-size: 1.7rem; }
+  .login-brand p { font-size: 1rem; }
+  .login-form-area { padding: 40px 30px; }
+}
+
+/* Mobile (up to 700px) */
+@media (max-width: 700px) {
+  .login-page { padding: 16px 12px; }
+  .login-card { grid-template-columns: 1fr; max-width: 440px; }
+  .login-brand { display: none; }
+  .login-form-area { padding: 32px 22px; }
+  .login-form-area h1 { font-size: 1.7rem; }
+}
+
+/* Small phones (up to 400px) */
+@media (max-width: 400px) {
+  .login-page { padding: 12px 8px; }
+  .login-form-area { padding: 26px 16px; }
+  .login-form-area h1 { font-size: 1.5rem; }
+  .login-subtitle { margin-bottom: 22px; }
+}
+
+/* Short screens, e.g. phones in landscape */
+@media (max-height: 600px) {
+  .login-page { align-items: flex-start; }
+  .login-brand,
+  .login-form-area { padding-top: 24px; padding-bottom: 24px; }
+  .login-subtitle { margin-bottom: 18px; }
+  .login-field { margin-bottom: 14px; }
+  .login-remember { margin-bottom: 18px; }
+}
