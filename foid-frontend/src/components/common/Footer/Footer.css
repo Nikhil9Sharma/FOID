@@ -40,7 +40,7 @@
 }
 
 /* Base Styles */
-.about-footer {
+.footer-footer {
   height: auto;
   width: 100%;
   background-color: var(--footer-bg);
@@ -63,8 +63,8 @@
   margin-bottom: var(--spacing-xl);
 }
 
-/* About Section */
-.about-section {
+/* Footer Section */
+.footer-section {
   display: flex;
   flex-direction: column;
 }
@@ -75,7 +75,7 @@
   margin-bottom: var(--spacing-sm);
 }
 
-.about-text {
+.footer-text {
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
 }

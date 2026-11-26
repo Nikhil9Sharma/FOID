@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
-import { NavLink, Link } from 'react-router-dom';
-import '../../public/style/Navbar.css';
+import React, { useState, useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import { NavLink, Link } from "react-router-dom";
+import "./Navbar.css";
 
 const dummyUser = {
   isLoggedIn: false, // set to true to simulate logged-in state
-  username: 'JohnDoe',
-  profilePic: '/foid-assets/userImg.jpg',
+  username: "JohnDoe",
+  profilePic: "/foid-assets/userImg.jpg",
 };
 
 const navItems = [
-  { label: 'Home', to: '/' },
-  { label: 'Education', to: '/MainEducation' },
-  { label: 'Events', to: '/Mainevent' },
-  { label: 'About', to: '/MainaboutUs' },
+  { label: "Home", to: "/" },
+  { label: "Education", to: "/MainEducation" },
+  { label: "Events", to: "/Mainevent" },
+  { label: "About", to: "/MainaboutUs" },
 ];
 
 const Navbar = () => {
@@ -25,15 +25,17 @@ const Navbar = () => {
 
   // Lock page scroll while the mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   // Close the menu on Escape key
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && setMenuOpen(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    const onKey = (e) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   const authArea = user.isLoggedIn ? (
@@ -43,8 +45,12 @@ const Navbar = () => {
     </div>
   ) : (
     <>
-      <Link to="/login" className="btn btn-login" onClick={closeMenu}>Login</Link>
-      <Link to="/signup" className="btn btn-signup" onClick={closeMenu}>Sign Up</Link>
+      <Link to="/login" className="btn btn-login" onClick={closeMenu}>
+        Login
+      </Link>
+      <Link to="/signup" className="btn btn-signup" onClick={closeMenu}>
+        Sign Up
+      </Link>
     </>
   );
 
@@ -57,18 +63,24 @@ const Navbar = () => {
       </Link>
 
       {/* CENTER: menu links */}
-      <div className={`menuarea ${menuOpen ? 'active' : ''}`}>
-        <button className="menu-close-btn" onClick={closeMenu} aria-label="Close menu">
+      <div className={`menuarea ${menuOpen ? "active" : ""}`}>
+        <button
+          className="menu-close-btn"
+          onClick={closeMenu}
+          aria-label="Close menu"
+        >
           <FiX size={26} />
         </button>
 
-        <ul>
+        <ul id="Navigation-Buttons">
           {navItems.map((item) => (
             <li key={item.to}>
               <NavLink
                 to={item.to}
-                end={item.to === '/'}
-                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                end={item.to === "/"}
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
                 onClick={closeMenu}
               >
                 {item.label}
@@ -85,7 +97,12 @@ const Navbar = () => {
       <div className="desktop-loginarea">{authArea}</div>
 
       {/* Hamburger (mobile only) */}
-      <button className="menuBtn" onClick={toggleMenu} aria-label="Open menu" aria-expanded={menuOpen}>
+      <button
+        className="menuBtn"
+        onClick={toggleMenu}
+        aria-label="Open menu"
+        aria-expanded={menuOpen}
+      >
         <FiMenu size={26} />
       </button>
 

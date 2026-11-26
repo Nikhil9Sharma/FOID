@@ -6,15 +6,15 @@
 
 :root {
   /* Color Palette */
-  --primary: #FF6F00;
-  --primary-light: #FFE0B2;
-  --secondary-cool: #00695C;
-  --secondary-bold: #3949AB;
+  --primary: #ff6f00;
+  --primary-light: #ffe0b2;
+  --secondary-cool: #00695c;
+  --secondary-bold: #3949ab;
 
   /* Text Colors */
   --text-primary: #212121;
   --text-secondary: #616161;
-  --text-on-dark: #FFFFFF;
+  --text-on-dark: #ffffff;
 
   /* Background Colors */
   --background-main: #fafafa;
@@ -48,7 +48,7 @@
 
 body {
   padding-top: var(--navbar-height);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* =========================================================
@@ -66,7 +66,7 @@ body {
   padding: 0 16px;
 
   display: grid;
-  grid-template-columns: 1fr auto 1fr;   /* keeps the menu truly centered */
+  grid-template-columns: 1fr auto 1fr; /* keeps the menu truly centered */
   align-items: center;
 }
 
@@ -108,6 +108,15 @@ body {
   list-style: none;
   gap: clamp(8px, 2vw, 28px);
 }
+.menuarea ul .nav-link {
+  color: var(--text-primary);
+}
+.menuarea ul .nav-link:hover {
+  color: var(--primary);
+}
+.menuarea ul .nav-link.active {
+  color: var(--primary);
+}
 
 .nav-link {
   display: inline-block;
@@ -130,17 +139,17 @@ body {
 /* ---------- RIGHT: Login + Sign Up (side by side) ---------- */
 .desktop-loginarea {
   display: flex;
-  flex-direction: row;          /* side by side, never stacked */
+  flex-direction: row; /* side by side, never stacked */
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
-  justify-self: end;            /* pushes to the far right corner */
+  justify-self: end; /* pushes to the far right corner */
   margin-left: auto;
 }
 
 .desktop-loginarea .btn {
-  width: auto;                  /* stops buttons stretching full width */
+  width: auto; /* stops buttons stretching full width */
   display: inline-block;
   margin: 0;
 }
@@ -216,15 +225,29 @@ body {
   .navbar {
     padding: 0 40px;
   }
-  .logoarea .Name { font-size: 1.8rem; }
-  .nav-link { font-size: 1.15rem; padding: 10px 18px; }
-  .btn { font-size: 1.05rem; padding: 10px 26px; }
+  .logoarea .Name {
+    font-size: 1.8rem;
+  }
+  .nav-link {
+    font-size: 1.15rem;
+    padding: 10px 18px;
+  }
+  .btn {
+    font-size: 1.05rem;
+    padding: 10px 26px;
+  }
 }
 
 /* ----- Laptop / small desktop ----- */
 @media screen and (max-width: 1024px) {
-  .nav-link { padding: 8px 10px; font-size: 0.95rem; }
-  .btn { padding: 7px 14px; font-size: 0.9rem; }
+  .nav-link {
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+  .btn {
+    padding: 7px 14px;
+    font-size: 0.9rem;
+  }
 }
 
 /* ----- Tablet / Mobile: hamburger + slide-in drawer ----- */
@@ -278,27 +301,27 @@ body {
   }
 
   /* close (X) button inside drawer */
-/* inside @media screen and (max-width: 860px) */
-.menuarea {
-  padding: 20px;
-}
+  /* inside @media screen and (max-width: 860px) */
+  .menuarea {
+    padding: 20px;
+  }
 
-.menu-close-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: flex-end;
-  margin: 0;
-  padding: 0;
-  position: static;
-  width: 60px;
-  height: 40px;
-  background: none;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  color: var(--text-primary);
-}
+  .menu-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    margin: 0;
+    padding: 0;
+    position: static;
+    width: 60px;
+    height: 40px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--text-primary);
+  }
 
   .menuarea ul {
     flex-direction: column;
@@ -353,6 +376,10 @@ body {
 
 /* ----- Small phones ----- */
 @media screen and (max-width: 400px) {
-  .logoarea .Name { font-size: 1.25rem; }
-  .logoarea img { max-width: 45px; }
+  .logoarea .Name {
+    font-size: 1.25rem;
+  }
+  .logoarea img {
+    max-width: 45px;
+  }
 }

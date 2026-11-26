@@ -1,6 +1,6 @@
 
 import React from 'react';
-// import './Ourteam.css';
+import '../assets/styles/Ourteam.css';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaUsersLine } from "react-icons/fa6";
 
